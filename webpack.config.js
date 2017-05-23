@@ -19,7 +19,8 @@ module.exports = {
         ]
     },
     devServer: {
-        publicPath: '/dist'
+        publicPath: '/dist',
+        contentBase: path.join(__dirname, 'src')
     },
     plugins: [
         new openBrowserPlugin({
