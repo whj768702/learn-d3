@@ -1,0 +1,30 @@
+{
+  "name": "learn-d3",
+  "version": "1.0.0",
+  "description": "d3",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --progress --port 8080 --hot --watch-poll --content-base ./src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whj768702/learn-d3.git"
+  },
+  "keywords": [
+    "d3"
+  ],
+  "author": "me",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whj768702/learn-d3/issues"
+  },
+  "homepage": "https://github.com/whj768702/learn-d3#readme",
+  "dependencies": {
+    "d3": "^4.9.1",
+    "webpack": "^2.6.0"
+  },
+  "devDependencies": {
+    "open-browser-webpack-plugin": "0.0.5"
+  }
+}
