@@ -2,10 +2,9 @@ const openBrowserPlugin = require('open-browser-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: [path.resolve(__dirname,'src/index.js')],
     output: {
         path: path.resolve(__dirname,'dist'),
-        publicPath: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -20,7 +19,8 @@ module.exports = {
     },
     devServer: {
         publicPath: '/dist',
-        contentBase: path.join(__dirname, 'src')
+        contentBase: path.join(__dirname, 'src'),
+        hot: false
     },
     plugins: [
         new openBrowserPlugin({
