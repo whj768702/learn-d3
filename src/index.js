@@ -57,9 +57,20 @@ const text = svg.selectAll('text')
 const xScale = d3.scaleLinear()
                  .domain([0, 10])
                  .range([0, 300]);
+//指数比例尺
+const pow = d3.scalePow()
+              .exponent(2)
+              .domain([0, 1])
+              .range([0, 500]);
+//对数比例尺
+const log = d3.scaleLog()
+              .domain([0.01, 1])
+              .range([0, 500]);
 /*x轴
 d3.axisBottom、d3.axisTop
 ticks(value):刻度数目
+tickValues():刻度值
+tickFormat():格式化刻度
 */
 const axisX = d3.axisBottom().scale(xScale);
 const gXAxis = svg.append('g').attr('transform', 'translate(80, 80)');
