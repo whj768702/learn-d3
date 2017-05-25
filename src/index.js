@@ -52,3 +52,20 @@ const text = svg.selectAll('text')
                 .text(function(d){
                     return d;
                 });
+
+//线性比例尺
+const xScale = d3.scaleLinear()
+                 .domain([0, 10])
+                 .range([0, 300]);
+/*x轴
+d3.axisBottom、d3.axisTop
+ticks(value):刻度数目
+*/
+const axisX = d3.axisBottom().scale(xScale);
+const gXAxis = svg.append('g').attr('transform', 'translate(80, 80)');
+gXAxis.call(axisX);//效果相同: axis(gAxis);
+//y轴
+//d3.axisLeft、d3.axisRight
+const axisY = d3.axisLeft().scale(xScale);
+const gYAxis = svg.append('g').attr('transform', 'translate(20,10)');
+gYAxis.call(axisY);
