@@ -120,17 +120,29 @@ svg2.append('g')
     .call(yAxis2);
 
 //container3
+/*
+ 画X轴和Y轴.
+ 使用线性比例尺.domain是定义域，range是值域.
+ d3.axisBottom:x轴坐标显示在轴线下方.
+ d3.axisTop:x轴坐标显示在轴线上方.
+ d3.axisLeft:y轴坐标显示在轴线左方.
+ d3.axisRight:y轴坐标显示在轴线右方.
+ */
 const svg3 = d3.select('#container3').append('svg').attr('width', width).attr('height', height).style('border','1px solid blue');
 const xScale3 = d3.scaleLinear().domain([0,10]).range([0,400]);
 const xAxis3 = d3.axisBottom().scale(xScale3);
 svg3.append('g').attr('class', 'axis').call(xAxis3);
-
+const yScale3 = d3.scaleLinear().domain([0,10]).range([0,400]);
+const yAxis3 = d3.axisRight().scale(yScale3);
+svg3.append('g').call(yAxis3);
+//x,y:每个柱状图的起始坐标.
+//width,height:柱状图的宽度和高度.
 const rect3 = svg3.selectAll('rect')
                   .data(dataset)
                   .enter()
                   .append('rect')
                   .attr('fill', 'steelblue')
-                  .attr('x', function(d, i){return i*20;})
-                  .attr('y', 10)
-                  .attr('width', 19)
+                  .attr('x', function(d, i){return i*20+40;})
+                  .attr('y', 40)
+                  .attr('width', 10)
                   .attr('height', function(d){return d;});
