@@ -132,7 +132,7 @@ const svg3 = d3.select('#container3').append('svg').attr('width', width).attr('h
 const xScale3 = d3.scaleLinear().domain([0,10]).range([0,400]);
 const xAxis3 = d3.axisBottom().scale(xScale3);
 svg3.append('g').attr('class', 'axis').call(xAxis3);
-const yScale3 = d3.scaleLinear().domain([0,10]).range([0,400]);
+const yScale3 = d3.scaleLinear().domain([0,10]).range([400,0]);
 const yAxis3 = d3.axisRight().scale(yScale3);
 svg3.append('g').call(yAxis3);
 //x,y:每个柱状图的起始坐标.
