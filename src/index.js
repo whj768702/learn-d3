@@ -128,13 +128,19 @@ svg2.append('g')
  d3.axisLeft:y轴坐标显示在轴线左方.
  d3.axisRight:y轴坐标显示在轴线右方.
  */
+const margin3 = {
+    top: 40,
+    right: 40,
+    bottom: 40,
+    left: 40
+};
 const svg3 = d3.select('#container3').append('svg').attr('width', width).attr('height', height).style('border','1px solid blue');
-const xScale3 = d3.scaleLinear().domain([0,10]).range([0,400]);
+const xScale3 = d3.scaleLinear().domain([0,10]).range([0, width-margin3.left-margin3.right]);
 const xAxis3 = d3.axisBottom().scale(xScale3);
-svg3.append('g').attr('class', 'axis').call(xAxis3);
-const yScale3 = d3.scaleLinear().domain([0,10]).range([400,0]);
-const yAxis3 = d3.axisRight().scale(yScale3);
-svg3.append('g').call(yAxis3);
+svg3.append('g').attr('transform', 'translate('+margin3.left+','+ 9*margin3.bottom+')').call(xAxis3);
+const yScale3 = d3.scaleLinear().domain([0, d3.max(dataset)]).range([height-margin3.top-margin3.bottom,0]);
+const yAxis3 = d3.axisLeft().scale(yScale3);
+svg3.append('g').attr('transform', 'translate('+margin3.left+','+margin3.top+')').call(yAxis3);
 //x,y:每个柱状图的起始坐标.
 //width,height:柱状图的宽度和高度.
 const rect3 = svg3.selectAll('rect')
@@ -142,7 +148,7 @@ const rect3 = svg3.selectAll('rect')
                   .enter()
                   .append('rect')
                   .attr('fill', 'steelblue')
-                  .attr('x', function(d, i){return i*20+40;})
-                  .attr('y', 40)
+                  .attr('x', function(d, i){return i*20+margin3.top;})
+                  .attr('y', function(d){return yScale3(d)+40;})
                   .attr('width', 10)
-                  .attr('height', function(d){return d;});
+                  .attr('height', function(d){return height-margin3.top-margin3.bottom-yScale3(d);});
