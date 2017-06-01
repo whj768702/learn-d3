@@ -138,6 +138,8 @@ const svg3 = d3.select('#container3').append('svg').attr('width', width).attr('h
 const xScale3 = d3.scaleLinear().domain([0,10]).range([0, width-margin3.left-margin3.right]);
 const xAxis3 = d3.axisBottom().scale(xScale3);
 svg3.append('g').attr('transform', 'translate('+margin3.left+','+ 9*margin3.bottom+')').call(xAxis3);
+//定义域是0-dataset中最大值.
+//值域是svg高度减上下空白-0.
 const yScale3 = d3.scaleLinear().domain([0, d3.max(dataset)]).range([height-margin3.top-margin3.bottom,0]);
 const yAxis3 = d3.axisLeft().scale(yScale3);
 svg3.append('g').attr('transform', 'translate('+margin3.left+','+margin3.top+')').call(yAxis3);
