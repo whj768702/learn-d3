@@ -140,8 +140,9 @@ const xAxis3 = d3.axisBottom().scale(xScale3);
 svg3.append('g').attr('transform', 'translate('+margin3.left+','+ 9*margin3.bottom+')').call(xAxis3);
 //定义域是0-dataset中最大值.
 //值域是svg高度减上下空白-0.
+//tickFormat:轴线单位格式化.
 const yScale3 = d3.scaleLinear().domain([0, d3.max(dataset)]).range([height-margin3.top-margin3.bottom,0]);
-const yAxis3 = d3.axisLeft().scale(yScale3);
+const yAxis3 = d3.axisLeft().scale(yScale3).tickFormat(function(d){return d+'M';});
 svg3.append('g').attr('transform', 'translate('+margin3.left+','+margin3.top+')').call(yAxis3);
 //x,y:每个柱状图的起始坐标.
 //width,height:柱状图的宽度和高度.
