@@ -137,6 +137,7 @@ const margin3 = {
 const svg3 = d3.select('#container3').append('svg').attr('width', width).attr('height', height).style('border','1px solid blue');
 const xScale3 = d3.scaleLinear().domain([0,10]).range([0, width-margin3.left-margin3.right]);
 const xAxis3 = d3.axisBottom().scale(xScale3);
+svg3.append('g').append('text').attr('transform','translate(0,20)').text('container3');
 svg3.append('g').attr('transform', 'translate('+margin3.left+','+ 9*margin3.bottom+')').call(xAxis3);
 //定义域是0-dataset中最大值.
 //值域是svg高度减上下空白-0.
